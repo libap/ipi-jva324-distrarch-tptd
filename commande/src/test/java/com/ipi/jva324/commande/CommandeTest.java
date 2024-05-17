@@ -77,4 +77,13 @@ public class CommandeTest {
         }
     }
 
+    @Test
+    public void testCreateCommande() {
+        // produit créé en init
+        ProduitEnStock p1 = produitService.getProduits().get(0);
+
+        Commande c1 = commandeService.createCommande(new Commande(p1.getId(), 1l));
+        Assertions.assertEquals("created", c1.getStatus());
+    }
+
 }
